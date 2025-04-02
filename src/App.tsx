@@ -1,12 +1,13 @@
-import { View, Text } from 'react-native';
 import React from 'react';
+import { Text } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import '../global.css';
 
 const App = () => {
   return (
-    <View>
+    <SafeAreaProvider>
       <Text>App</Text>
-    </View>
+    </SafeAreaProvider>
   );
 };
 
