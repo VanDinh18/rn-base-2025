@@ -14,11 +14,12 @@ interface UserState {
   userInfo: UserInfoState | null;
   setToken: (accessToken: string, refreshToken: string) => void;
   setUserInfo: (info: UserInfoState) => void;
+  isLoggedIn: () => boolean;
 }
 
 export const useUserStore = create<UserState>()(
   persist(
-    (set, _) => ({
+    (set, get) => ({
       accessToken: null,
       refreshToken: null,
       userInfo: null,
@@ -33,6 +34,7 @@ export const useUserStore = create<UserState>()(
         set(state => ({
           userInfo: { ...state.userInfo, ...info },
         })),
+      isLoggedIn: () => get().accessToken !== null,
     }),
     {
       name: nameOfStorage.user,
