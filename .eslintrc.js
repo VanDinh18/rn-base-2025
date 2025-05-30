@@ -7,12 +7,10 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:tailwindcss/recommended',
   ],
-  plugins: [
-    'simple-import-sort',
-    '@typescript-eslint/eslint-plugin',
-  ],
+  plugins: ['simple-import-sort', '@typescript-eslint/eslint-plugin'],
   rules: {
     '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'prettier/prettier': [
       'error',
       {
