@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { stateStorage, nameOfStorage } from '../storage';
+
+import { nameOfStorage, stateStorage } from '../storage';
 
 interface UserInfoState {
   username: string;
