@@ -1,5 +1,6 @@
-import { create } from 'zustand';
+import { useStore } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
+import { createStore } from 'zustand/vanilla';
 
 import { nameOfStorage, stateStorage } from '../storage';
 
@@ -7,6 +8,7 @@ interface UserInfoState {
   username: string;
   sex: string;
   age: number;
+  avatar: string;
 }
 
 interface UserState {
@@ -15,10 +17,9 @@ interface UserState {
   userInfo: UserInfoState | null;
   setToken: (accessToken: string, refreshToken: string) => void;
   setUserInfo: (info: UserInfoState) => void;
-  isLoggedIn: () => boolean;
 }
 
-export const useUserStore = create<UserState>()(
+export const userStore = createStore<UserState>()(
   persist(
     (set, get) => ({
       accessToken: null,
@@ -35,7 +36,6 @@ export const useUserStore = create<UserState>()(
         set(state => ({
           userInfo: { ...state.userInfo, ...info },
         })),
-      isLoggedIn: () => get().accessToken !== null,
     }),
     {
       name: nameOfStorage.user,
@@ -43,5 +43,3 @@ export const useUserStore = create<UserState>()(
     },
   ),
 );
-
-export default useUserStore;
