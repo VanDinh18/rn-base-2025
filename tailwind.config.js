@@ -2,7 +2,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'selector',
-  // NOTE: Update this to include the paths to all of your component files.
   content: [
     './src/App.{tsx,jsx,ts,js}',
     './index.{tsx,jsx,ts,js}',
@@ -11,7 +10,17 @@ module.exports = {
   presets: [require('nativewind/preset')],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        text: {
+          primary: '#2E2E2E',
+          secondary: '#A5A5A5',
+        },
+        button: {
+          default: '#1D1D1D',
+          secondary: '#8D8D8D',
+          disabled: '#D9D9D9)',
+        },
+      },
     },
   },
   plugins: [],

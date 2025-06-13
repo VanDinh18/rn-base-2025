@@ -6,7 +6,7 @@ const textInputVariants = tv({
   slots: {
     container: 'flex-col gap-1',
     label: 'text-sm font-medium',
-    input: 'rounded-lg border px-3 py-2 text-base',
+    input: 'rounded-lg border px-3 py-2',
     errorText: 'mt-1 text-xs',
   },
   variants: {
@@ -26,15 +26,15 @@ const textInputVariants = tv({
     },
     size: {
       sm: {
-        input: 'px-2 py-1 text-sm',
+        input: 'px-2 py-1 text-sm leading-4',
         label: 'text-xs',
       },
       md: {
-        input: 'px-3 py-2 text-base',
+        input: 'px-3 py-2 text-base leading-5',
         label: 'text-sm',
       },
       lg: {
-        input: 'px-4 py-3 text-lg',
+        input: 'px-4 py-3 text-lg leading-6',
         label: 'text-base',
       },
     },
