@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 
@@ -9,6 +10,7 @@ import { useLoginMutation } from '@/hooks/auth';
 import { loginResolver } from '@/utils/validation/resolver';
 
 const LoginScreen = () => {
+  const { t } = useTranslation();
   const { mutateAsync } = useLoginMutation();
 
   const onSubmit = (form: ILoginForm) => {
@@ -40,7 +42,7 @@ const LoginScreen = () => {
           name="email"
           control={control}
           rules={{ required: true }}
-          label="Email"
+          label={t('login.email')}
           placeholder="Enter text"
           containerClassName="mb-4"
           variant="default"
@@ -51,7 +53,7 @@ const LoginScreen = () => {
           name="password"
           control={control}
           rules={{ required: true }}
-          label="Password"
+          label={t('login.password')}
           placeholder="Enter text"
           containerClassName="mb-4"
           variant="default"
